@@ -41,6 +41,8 @@ class RootPage extends StatelessWidget {
             bottomNavigationBar: BottomNavigationBar(
               items: _tabList,
               currentIndex: nav.currentIndex,
+              showSelectedLabels: false,
+              showUnselectedLabels: false,
               onTap: (index) {
                 nav.currentIndex = index;
               },
