@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "146906097991",
+    "project_id": "wavey-b4e7f",
+    "storage_bucket": "wavey-b4e7f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:146906097991:android:7681e798040e8fdfcc0462",
+        "android_client_info": {
+          "package_name": "com.example.wavey"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "146906097991-fs8t2gdfuseum8pmrko1u5f3328ag44l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZnJjnIlDuIVgUS-6kP4MV2OU5IJKVo7s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "146906097991-fs8t2gdfuseum8pmrko1u5f3328ag44l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
