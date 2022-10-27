@@ -1,4 +1,8 @@
 {
+  // change snake case to pascal case
+  // ${1/(^[a-z])|_([a-z])/${1:/upcase}${2:/upcase}/g}
+  // change snake case to camel case
+  // ${1/_([a-z])/${1:/upcase}/g}
   "freezed state": {
     "prefix": "freezed",
     "description": "generate freezed state",
@@ -8,11 +12,28 @@
       "part '${TM_FILENAME_BASE}.freezed.dart';",
       "",
       "@freezed",
-      "class $1 with _$$1 {",
-      "  const factory $1({",
-      "    $2,",
-      "  }) = _$1;",
+      "class ${TM_FILENAME_BASE/(^[a-z])|_([a-z])/${1:/upcase}${2:/upcase}/g} with _$${TM_FILENAME_BASE/(^[a-z])|_([a-z])/${1:/upcase}${2:/upcase}/g} {",
+      "  const factory ${TM_FILENAME_BASE/(^[a-z])|_([a-z])/${1:/upcase}${2:/upcase}/g}({",
+      "    $1,",
+      "  }) = _${TM_FILENAME_BASE/(^[a-z])|_([a-z])/${1:/upcase}${2:/upcase}/g};",
       "}"
+    ]
+  },
+  "freezed state notifier": {
+    "prefix": "provider",
+    "description": "generate freezed state notifier (input snake case file name)",
+    "body": [
+      "import 'package:flutter_riverpod/flutter_riverpod.dart';",
+      "",
+      "import '../models/$1.dart';",
+      "",
+      "class ${1/(^[a-z])|_([a-z])/${1:/upcase}${2:/upcase}/g}Notifier extends StateNotifier<${1/(^[a-z])|_([a-z])/${1:/upcase}${2:/upcase}/g}> {",
+      "  ${1/(^[a-z])|_([a-z])/${1:/upcase}${2:/upcase}/g}Notifier() : super(const ${1/(^[a-z])|_([a-z])/${1:/upcase}${2:/upcase}/g}());",
+      "}",
+      "",
+      "final ${1/_([a-z])/${1:/upcase}/g}Notifier = StateNotifierProvider<${1/(^[a-z])|_([a-z])/${1:/upcase}${2:/upcase}/g}Notifier, ${1/(^[a-z])|_([a-z])/${1:/upcase}${2:/upcase}/g}>(",
+      "  (_) => ${1/(^[a-z])|_([a-z])/${1:/upcase}${2:/upcase}/g}Notifier(),",
+      ");"
     ]
   }
 }
