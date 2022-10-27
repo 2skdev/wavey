@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../provider/bottom_navigation_provider.dart';
 import 'home_page.dart';
 import 'map_page.dart';
 import 'user_page.dart';
 
-class RootPage extends StatelessWidget {
+import '../../provider/bottom_navigation_provider.dart';
+
+class RootPage extends ConsumerWidget {
   const RootPage({super.key});
 
   List<Widget> get _pageList => <Widget>[
@@ -31,24 +32,18 @@ class RootPage extends StatelessWidget {
       ];
 
   @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => BottomNavigationProvider(),
-      child: Consumer<BottomNavigationProvider>(
-        builder: (context, nav, child) {
-          return Scaffold(
-            body: _pageList[nav.currentIndex],
-            bottomNavigationBar: BottomNavigationBar(
-              items: _tabList,
-              currentIndex: nav.currentIndex,
-              showSelectedLabels: false,
-              showUnselectedLabels: false,
-              onTap: (index) {
-                nav.currentIndex = index;
-              },
-            ),
-          );
-        },
+  Widget build(BuildContext context, WidgetRef ref) {
+    final nav = ref.watch(bottomNavigationProvider);
+
+    return Scaffold(
+      body: _pageList[nav],
+      bottomNavigationBar: BottomNavigationBar(
+        items: _tabList,
+        currentIndex: nav,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        onTap: (index) =>
+            ref.read(bottomNavigationProvider.notifier).state = index,
       ),
     );
   }
