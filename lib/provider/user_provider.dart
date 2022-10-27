@@ -1,14 +1,11 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../models/user_model.dart';
+import '../models/user_state.dart';
 
-class UserProvider extends ChangeNotifier {
-  UserModel _userModel = UserModel();
-
-  UserModel get user => _userModel;
-
-  void fetch() {
-    _userModel = UserModel();
-    notifyListeners();
-  }
+class UserStateNotifier extends StateNotifier<UserState> {
+  UserStateNotifier() : super(const UserState());
 }
+
+final userStateNotifier = StateNotifierProvider<UserStateNotifier, UserState>(
+  (_) => UserStateNotifier(),
+);

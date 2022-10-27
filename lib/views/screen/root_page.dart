@@ -33,7 +33,7 @@ class RootPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final nav = ref.watch(bottomNavigationProvider);
+    final nav = ref.watch(bottomNavigationStateProvider);
 
     return Scaffold(
       body: _pageList[nav],
@@ -43,7 +43,7 @@ class RootPage extends ConsumerWidget {
         showSelectedLabels: false,
         showUnselectedLabels: false,
         onTap: (index) =>
-            ref.read(bottomNavigationProvider.notifier).state = index,
+            ref.read(bottomNavigationStateProvider.notifier).state = index,
       ),
     );
   }
