@@ -29,6 +29,13 @@
             {
               "client_id": "146906097991-fs8t2gdfuseum8pmrko1u5f3328ag44l.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "146906097991-vtjmjgrspt9a39gk3hagpr765vlggr6q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.wavey"
+              }
             }
           ]
         }
