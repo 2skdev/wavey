@@ -19,6 +19,24 @@
       "}"
     ]
   },
+  "freezed state with json serialize": {
+    "prefix": "freezed json",
+    "description": "generate freezed state with json serialize",
+    "body": [
+      "import 'package:freezed_annotation/freezed_annotation.dart';",
+      "",
+      "part '${TM_FILENAME_BASE}.freezed.dart';",
+      "part '${TM_FILENAME_BASE}.g.dart';",
+      "",
+      "@freezed",
+      "class ${TM_FILENAME_BASE/(^[a-z])|_([a-z])/${1:/upcase}${2:/upcase}/g} with _$${TM_FILENAME_BASE/(^[a-z])|_([a-z])/${1:/upcase}${2:/upcase}/g} {",
+      "  const factory ${TM_FILENAME_BASE/(^[a-z])|_([a-z])/${1:/upcase}${2:/upcase}/g}({",
+      "    $1,",
+      "  }) = _${TM_FILENAME_BASE/(^[a-z])|_([a-z])/${1:/upcase}${2:/upcase}/g};",
+      "  factory UserState.fromJson(Map<String, dynamic> json) => _$${TM_FILENAME_BASE/(^[a-z])|_([a-z])/${1:/upcase}${2:/upcase}/g}FromJson(json);",
+      "}"
+    ]
+  },
   "freezed state notifier": {
     "prefix": "provider",
     "description": "generate freezed state notifier (input snake case file name)",
