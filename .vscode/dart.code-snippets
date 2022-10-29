@@ -33,7 +33,8 @@
       "  const factory ${TM_FILENAME_BASE/(^[a-z])|_([a-z])/${1:/upcase}${2:/upcase}/g}({",
       "    $1,",
       "  }) = _${TM_FILENAME_BASE/(^[a-z])|_([a-z])/${1:/upcase}${2:/upcase}/g};",
-      "  factory UserState.fromJson(Map<String, dynamic> json) => _$${TM_FILENAME_BASE/(^[a-z])|_([a-z])/${1:/upcase}${2:/upcase}/g}FromJson(json);",
+      "",
+      "  factory ${TM_FILENAME_BASE/(^[a-z])|_([a-z])/${1:/upcase}${2:/upcase}/g}.fromJson(Map<String, dynamic> json) => _$${TM_FILENAME_BASE/(^[a-z])|_([a-z])/${1:/upcase}${2:/upcase}/g}FromJson(json);",
       "}"
     ]
   },
